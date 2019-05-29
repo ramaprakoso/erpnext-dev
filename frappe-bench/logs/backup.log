@@ -1,0 +1,214 @@
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 97, in <module>
+    main()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 18, in main
+    click.Group(commands=commands)(prog_name='bench')
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 764, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/decorators.py", line 17, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/commands/__init__.py", line 25, in _func
+    ret = f(frappe._dict(ctx.obj), *args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/commands/site.py", line 304, in backup
+    odb = scheduled_backup(ignore_files=not with_files, backup_path_db=backup_path_db, backup_path_files=backup_path_files, backup_path_private_files=backup_path_private_files, force=True)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 170, in scheduled_backup
+    odb = new_backup(older_than, ignore_files, backup_path_db=backup_path_db, backup_path_files=backup_path_files, force=force)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 180, in new_backup
+    odb.get_backup(older_than, ignore_files, force=force)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 48, in get_backup
+    self.set_backup_file_name()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 61, in set_backup_file_name
+    todays_date = now_datetime().strftime('%Y%m%d_%H%M%S')
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 126, in now_datetime
+    dt = convert_utc_to_user_timezone(datetime.datetime.utcnow())
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 149, in convert_utc_to_user_timezone
+    return utcnow.astimezone(timezone(get_time_zone()))
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 143, in get_time_zone
+    return frappe.cache().get_value("time_zone", _get_time_zone)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 79, in get_value
+    val = generator()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 137, in _get_time_zone
+    return frappe.db.get_system_setting('time_zone') or 'Asia/Kolkata' # Default to India ?!
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 878, in get_system_setting
+    return frappe.cache().get_value("system_settings", _load_system_settings).get(key)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 79, in get_value
+    val = generator()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 877, in _load_system_settings
+    return self.get_singles_dict("System Settings")
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 517, in get_singles_dict
+    """, doctype)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 156, in sql
+    self._cursor.execute(query, values)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, u"Table '_00299a408dc3498a.tabSingles' doesn't exist")
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 97, in <module>
+    main()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 18, in main
+    click.Group(commands=commands)(prog_name='bench')
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 764, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/decorators.py", line 17, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/commands/__init__.py", line 25, in _func
+    ret = f(frappe._dict(ctx.obj), *args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/commands/site.py", line 304, in backup
+    odb = scheduled_backup(ignore_files=not with_files, backup_path_db=backup_path_db, backup_path_files=backup_path_files, backup_path_private_files=backup_path_private_files, force=True)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 170, in scheduled_backup
+    odb = new_backup(older_than, ignore_files, backup_path_db=backup_path_db, backup_path_files=backup_path_files, force=force)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 180, in new_backup
+    odb.get_backup(older_than, ignore_files, force=force)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 48, in get_backup
+    self.set_backup_file_name()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 61, in set_backup_file_name
+    todays_date = now_datetime().strftime('%Y%m%d_%H%M%S')
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 126, in now_datetime
+    dt = convert_utc_to_user_timezone(datetime.datetime.utcnow())
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 149, in convert_utc_to_user_timezone
+    return utcnow.astimezone(timezone(get_time_zone()))
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 143, in get_time_zone
+    return frappe.cache().get_value("time_zone", _get_time_zone)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 79, in get_value
+    val = generator()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 137, in _get_time_zone
+    return frappe.db.get_system_setting('time_zone') or 'Asia/Kolkata' # Default to India ?!
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 878, in get_system_setting
+    return frappe.cache().get_value("system_settings", _load_system_settings).get(key)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 79, in get_value
+    val = generator()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 877, in _load_system_settings
+    return self.get_singles_dict("System Settings")
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 517, in get_singles_dict
+    """, doctype)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 156, in sql
+    self._cursor.execute(query, values)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/cursors.py", line 170, in execute
+    result = self._query(query)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/cursors.py", line 328, in _query
+    conn.query(q)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 732, in _read_query_result
+    result.read()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, u"Table '_00299a408dc3498a.tabSingles' doesn't exist")
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "/usr/lib/python2.7/runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 97, in <module>
+    main()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 18, in main
+    click.Group(commands=commands)(prog_name='bench')
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 764, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/click/decorators.py", line 17, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/commands/__init__.py", line 25, in _func
+    ret = f(frappe._dict(ctx.obj), *args, **kwargs)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/commands/site.py", line 304, in backup
+    odb = scheduled_backup(ignore_files=not with_files, backup_path_db=backup_path_db, backup_path_files=backup_path_files, backup_path_private_files=backup_path_private_files, force=True)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 170, in scheduled_backup
+    odb = new_backup(older_than, ignore_files, backup_path_db=backup_path_db, backup_path_files=backup_path_files, force=force)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 180, in new_backup
+    odb.get_backup(older_than, ignore_files, force=force)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 48, in get_backup
+    self.set_backup_file_name()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/backups.py", line 61, in set_backup_file_name
+    todays_date = now_datetime().strftime('%Y%m%d_%H%M%S')
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 126, in now_datetime
+    dt = convert_utc_to_user_timezone(datetime.datetime.utcnow())
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 149, in convert_utc_to_user_timezone
+    return utcnow.astimezone(timezone(get_time_zone()))
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 143, in get_time_zone
+    return frappe.cache().get_value("time_zone", _get_time_zone)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 79, in get_value
+    val = generator()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/data.py", line 137, in _get_time_zone
+    return frappe.db.get_system_setting('time_zone') or 'Asia/Kolkata' # Default to India ?!
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 878, in get_system_setting
+    return frappe.cache().get_value("system_settings", _load_system_settings).get(key)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 79, in get_value
+    val = generator()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 877, in _load_system_settings
+    return self.get_singles_dict("System Settings")
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 517, in get_singles_dict
+    """, doctype)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 122, in sql
+    self.connect()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/database.py", line 75, in connect
+    self._conn = self.get_connection()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/apps/frappe/frappe/database/mariadb/database.py", line 95, in get_connection
+    conn.select_db(self.user)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 446, in select_db
+    self._read_ok_packet()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 394, in _read_ok_packet
+    pkt = self._read_packet()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/ramaprakoso/erpnext_project/frappe-bench/env/local/lib/python2.7/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1049, u"Unknown database '_00299a408dc3498a'")

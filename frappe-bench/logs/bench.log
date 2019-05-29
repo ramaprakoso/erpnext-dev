@@ -1,0 +1,3 @@
+2019-05-18 22:16:40,046 INFO creating new app library_management
+2019-05-18 22:17:36,415 INFO installing library_management
+2019-05-18 22:17:36,416 INFO ./env/bin/pip install -q  -e ./apps/library_management 
